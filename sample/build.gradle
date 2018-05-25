@@ -27,7 +27,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:recyclerview-v7:' + SUPPORT_VERSION
 
-    compile project(":library")
+    implementation project(":library")
     annotationProcessor project(":lego-processor")
 
     testImplementation 'junit:junit:4.12'

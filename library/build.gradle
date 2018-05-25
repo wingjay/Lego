@@ -1,4 +1,12 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+// Remember update version when library updates
+//./gradlew install; ./gradlew bintrayUpload
+// https://bintray.com/wingjay/maven/Lego
+// refer to https://www.jianshu.com/p/a58f8d52448d
+version = "0.1.0"
+
 
 android {
     compileSdkVersion 26
@@ -35,6 +43,57 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile project(":lego-annotation")
+    implementation project(":lego-annotation")
     annotationProcessor project(":lego-processor")
+}
+
+def siteUrl = 'https://github.com/wingjay/Lego'      // 项目的主页
+def gitUrl = 'https://github.com/wingjay/Lego.git'   // Git仓库的url
+group = "com.wingjay" // Maven Group ID for the artifact，一般填你唯一的包名
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                // Add your description here
+                name 'A powerful Android library for building complex RecyclerView. Building a list is as easy as playing Lego game. List<Model> =>Lego=> List<View>.' //项目描述
+                url siteUrl
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'wingjay'       //填写开发者基本信息
+                        name 'wingjay'
+                        email 'yinjiesh@126.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
+        name = "Lego"  //发布到Bintray上的项目名字
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
 }

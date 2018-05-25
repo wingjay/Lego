@@ -8,17 +8,22 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0-beta5'
-        
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+// Plugin used to upload authenticated files to BinTray through Gradle
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+}
+
 allprojects {
     repositories {
-        google()
         jcenter()
+        google()
     }
 }
 
