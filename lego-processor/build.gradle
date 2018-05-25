@@ -1,0 +1,12 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(":lego-annotation")
+    compile "com.squareup:javapoet:1.9.0"
+    compile "com.google.auto.service:auto-service:1.0-rc3"
+    compile "com.google.auto:auto-common:0.8"
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

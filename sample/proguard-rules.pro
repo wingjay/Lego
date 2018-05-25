@@ -19,3 +19,15 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#keep all class use @LegoBean annotation
+-keep,allowobfuscation @interface com.xiami.music.uikit.LegoBean
+-keep,allowobfuscation @interface com.xiami.music.uikit.LegoViewHolder
+-keep @com.xiami.music.uikit.LegoBean class *
+-keepclassmembers class * {
+    @com.xiami.music.uikit.LegoBean *;
+}
+-keep @com.xiami.music.uikit.LegoViewHolder class *
+-keepclassmembers class * {
+    @com.xiami.music.uikit.LegoViewHolder *;
+}
