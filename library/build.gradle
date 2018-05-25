@@ -5,7 +5,7 @@ apply plugin: 'com.jfrog.bintray'
 //./gradlew install; ./gradlew bintrayUpload
 // https://bintray.com/wingjay/maven/Lego
 // refer to https://www.jianshu.com/p/a58f8d52448d
-version = "0.1.0"
+version = "0.1.1"
 
 
 android {
@@ -49,7 +49,7 @@ dependencies {
 
 def siteUrl = 'https://github.com/wingjay/Lego'      // 项目的主页
 def gitUrl = 'https://github.com/wingjay/Lego.git'   // Git仓库的url
-group = "com.wingjay" // Maven Group ID for the artifact，一般填你唯一的包名
+group = "com.wingjay.lego" // Maven Group ID for the artifact，一般填你唯一的包名
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
