@@ -44,10 +44,11 @@ install {
         }
     }
 }
-//task sourcesJar(type: Jar) {
-//    from android.sourceSets.main.java.srcDirs
-//    classifier = 'sources'
-//}
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+// disable javadoc Jar due to error
 //task javadoc(type: Javadoc) {
 //    source = android.sourceSets.main.java.srcDirs
 //    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
@@ -56,10 +57,10 @@ install {
 //    classifier = 'javadoc'
 //    from javadoc.destinationDir
 //}
-//artifacts {
+artifacts {
 //    archives javadocJar
-//    archives sourcesJar
-//}
+    archives sourcesJar
+}
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {

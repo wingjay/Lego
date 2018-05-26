@@ -3,7 +3,7 @@
 buildscript {
     ext.publish = [
             legoVersionCode: 1,
-            legoVersion: '0.1.7',
+            legoVersion: '0.9.0',
             siteUrl: 'https://github.com/wingjay/Lego',
             gitUrl: 'https://github.com/wingjay/Lego.git',
             group: 'com.wingjay.lego' // Maven Group ID for the artifact，一般填你唯一的包名
