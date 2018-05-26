@@ -2,7 +2,10 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(":lego-annotation")
+
+    implementation project(":lego-annotation")
+    //implementation 'com.wingjay.lego:lego-annotation:0.1.2'
+
     compile "com.squareup:javapoet:1.9.0"
     compile "com.google.auto.service:auto-service:1.0-rc3"
     compile "com.google.auto:auto-common:0.8"
@@ -10,3 +13,5 @@ dependencies {
 
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
+
+ext.jarPublishName='lego-processor'; apply from: '../jarPublish.gradle'

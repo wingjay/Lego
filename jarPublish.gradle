@@ -1,0 +1,75 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+// read properties
+
+// specify jarPublishName when you use jarPublish.gradle
+// such as: ext.jarPublishName='lego-processor'; apply from: '../jarPublish.gradle'
+def projectName = jarPublishName
+
+// from ext.publish in base build.gradle
+version = publish.legoVersion
+def siteUrl = publish.siteUrl
+def gitUrl = publish.gitUrl
+group = publish.group
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'jar'
+                // Add your description here
+                name projectName //项目描述
+                url siteUrl
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'wingjay'    //填写的一些基本信息
+                        name 'wingjay'
+                        email 'yinjiesh@126.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+
+// 下面的几个task是与发布android library不一样的地方
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+artifacts {
+    archives sourcesJar
+}
+
+// from project.properties file
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = projectName    //发布到JCenter上的项目名字，上面注释里面冒号后面的一截
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}

@@ -1,7 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+    ext.publish = [
+            legoVersionCode: 1,
+            legoVersion: '0.1.7',
+            siteUrl: 'https://github.com/wingjay/Lego',
+            gitUrl: 'https://github.com/wingjay/Lego.git',
+            group: 'com.wingjay.lego' // Maven Group ID for the artifact，一般填你唯一的包名
+    ]
     repositories {
         google()
         jcenter()
