@@ -4,7 +4,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(":lego-annotation")
-    //implementation 'com.wingjay.lego:lego-annotation:0.1.2'
+    //TODO: implementation 'com.wingjay.lego:lego-annotation:0.9.0'
 
     compile "com.squareup:javapoet:1.9.0"
     compile "com.google.auto.service:auto-service:1.0-rc3"
