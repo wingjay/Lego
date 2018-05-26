@@ -4,7 +4,6 @@ package com.wingjay.lego;
  * DuplicateLegoKeyException
  *
  * @author wingjay
- * @date 2017/09/26
  */
 public class DuplicateLegoKeyException extends IllegalArgumentException {
     public DuplicateLegoKeyException(String key, String viewHolder1, String viewHolder2) {

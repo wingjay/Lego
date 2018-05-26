@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
  * LegoItem
  *
  * @author wingjay
- * @date 2017/09/22
  */
 public class LegoItem {
     private String viewHolderId;

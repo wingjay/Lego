@@ -16,7 +16,6 @@ import com.wingjay.lego.IViewHolderMapper;
  * 2. by Object class. Remember: one Object class can only specify one ViewHolder, otherwise it'll be confusing to choose.
  *
  * @author wingjay
- * @date 2017/09/25
  */
 public class GlobalViewHolderMapper {
 

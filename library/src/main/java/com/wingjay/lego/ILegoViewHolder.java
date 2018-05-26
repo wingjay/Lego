@@ -12,7 +12,6 @@ import android.view.ViewGroup;
  * 2. bind data.
  *
  * @author wingjay
- * @date 2017/09/21
  */
 public interface ILegoViewHolder {
     /**

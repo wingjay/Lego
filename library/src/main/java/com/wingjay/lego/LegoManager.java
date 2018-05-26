@@ -8,7 +8,6 @@ import com.wingjay.lego.inner.GlobalViewHolderMapper;
  * LegoManager, init/register your IViewHolderMapper.
  *
  * @author wingjay
- * @date 2017/09/25
  */
 public class LegoManager {
 

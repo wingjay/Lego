@@ -12,7 +12,6 @@ import com.wingjay.lego.ILegoViewHolder;
  * LViewHolderFactory: build LegoViewHolder instance from class.
  *
  * @author wingjay
- * @date 2017/11/17
  */
 public class LViewHolderFactory {
 

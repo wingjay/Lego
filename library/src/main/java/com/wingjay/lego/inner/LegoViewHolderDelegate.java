@@ -10,7 +10,6 @@ import com.wingjay.lego.LegoItem;
  * IRichRecyclerViewHolder
  *
  * @author wingjay
- * @date 2017/09/22
  */
 public class LegoViewHolderDelegate extends ViewHolder {
     private ILegoViewHolder realViewHolder;

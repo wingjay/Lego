@@ -19,7 +19,6 @@ import com.wingjay.lego.inner.LegoViewHolderDelegate;
  * Optimize: cache viewHolder before data fetched from server.
  *
  * @author wingjay
- * @date 2017/09/22
  */
 public class LegoRecyclerAdapter extends RecyclerView.Adapter<LegoViewHolderDelegate> {
 

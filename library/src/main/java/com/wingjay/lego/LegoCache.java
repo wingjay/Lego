@@ -19,7 +19,6 @@ import com.wingjay.lego.inner.LegoViewHolderDelegate;
  *  1. No need to inflate viewHolder in worker thread, due to that cost more time to switch thread.
  *
  * @author wingjay
- * @date 2017/11/17
  */
 @SuppressWarnings("WeakerAccess")
 public class LegoCache {

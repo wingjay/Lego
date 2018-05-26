@@ -9,7 +9,6 @@ import java.util.Map;
  * "build.gradle/android/defaultConfig/javaCompileOptions/annotationProcessorOptions/arguments['moduleName']"
  *
  * @author wingjay
- * @date 2017/09/23
  */
 public interface IViewHolderMapper {
     /**
