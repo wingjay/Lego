@@ -132,6 +132,34 @@ recyclerView.setAdapter(adapter)
 
 Bingo! 这个能达到和上面一样的效果。
 
+
+## 运行时获取LegoViewHolder实例
+```
+adapter.setOnLegoViewHolderListener(new OnLegoViewHolderListener() {
+    @Override
+    public void onCreate(@NonNull ILegoViewHolder viewHolder) {
+        if (viewHolder instanceof AppleViewHolder) {
+            makeToast("Create AppleViewHolder");
+        } else if (viewHolder instanceof OrangeViewHolder) {
+            makeToast("Create OrangeViewHolder");
+        }
+    }
+});
+```
+
+## ViewHolder缓存
+如果你知道你的页面至少会显示2个OrangeViewHolder和2个AppleViewHolder，你可以提前告诉Lego，他会帮你立即创建并渲染好这几个ViewHolder，等你的数据回来（比如服务端返回的数据）后，你就无需再去初始化ViewHolder，而是可以立即显示出来。
+```
+LegoCache legoCache =
+    new LegoCache.Builder(recyclerView)
+    .cache(OrangeViewHolder.class, 2)
+    .cache(AppleViewHolder.class, 2)
+    .build();
+adapter.setLegoCache(legoCache);
+```
+
+这个主要用在页面第一次显示时的加速，利用网络请求的间隙提前预判并渲染好ViewHolder。
+
 # Sample
 Here is our [sample code](https://github.com/wingjay/Lego/tree/master/sample) you can try.
 
