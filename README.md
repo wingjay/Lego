@@ -3,7 +3,7 @@ A powerful Android library for building complex RecyclerView. Building a list is
 
 List&lt;Model> =>Lego=> List&lt;View>. 像搭积木一样构建你的RecyclerView列表。
 
-中文介绍
+[中文介绍](https://github.com/wingjay/Lego/blob/master/README_CN.md)
 
 # What Lego does
 When you need to build a RecyclerView which contains `different types of ViewHolder`, you may always need to maintain a huge Adapter and calculate which type should be displayed on each position.
@@ -137,6 +137,32 @@ recyclerView.setAdapter(adapter)
 ```
 
 Bingo! This will display same three ViewHolders as above, but this way is easier to use.
+
+## Get LegoViewHolder instance
+```
+adapter.setOnLegoViewHolderListener(new OnLegoViewHolderListener() {
+    @Override
+    public void onCreate(@NonNull ILegoViewHolder viewHolder) {
+        if (viewHolder instanceof AppleViewHolder) {
+            makeToast("Create AppleViewHolder");
+        } else if (viewHolder instanceof OrangeViewHolder) {
+            makeToast("Create OrangeViewHolder");
+        }
+    }
+});
+```
+
+## ViewHolder cache
+If you know your page need at least 2 AppleViewHolder and 3 OrangeViewHolder, you can tell Lego to generate ViewHolder instance and inflate. When data(maybe from server) arrives, you can display immediately and no need to do the ViewHolder Inflate.
+```
+LegoCache legoCache =
+    new LegoCache.Builder(recyclerView)
+    .cache(OrangeViewHolder.class, 2)
+    .cache(AppleViewHolder.class, 2)
+    .build();
+adapter.setLegoCache(legoCache);
+```
+
 
 # Sample
 Here is our [sample code](https://github.com/wingjay/Lego/tree/master/sample) you can try.
