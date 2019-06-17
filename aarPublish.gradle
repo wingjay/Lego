@@ -1,9 +1,10 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 // Remember update version when library updates
+// Remember enter bintray.user&apiKey in local.properties
 //./gradlew install; ./gradlew bintrayUpload
 // https://bintray.com/wingjay/maven/Lego
-// refer to https://www.jianshu.com/p/1502674152bd
+// refer to https://cuieney.github.io/2016/12/16/andoird-Bintray/
 
 def projectName = 'Lego'
 

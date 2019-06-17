@@ -81,7 +81,7 @@ public class LegoRecyclerAdapter extends RecyclerView.Adapter<LegoViewHolderDele
         this.onLegoViewHolderListener = listener;
     }
 
-    private void setupViewHolderClassList() {
+    public void setupViewHolderClassList() {
         if (dataList == null || dataList.size() <= 0) {
             viewHolderClassNameList.clear();
             return;

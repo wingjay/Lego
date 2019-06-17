@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
+apply from: '../aarPublish.gradle'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "27.0.1"
+    compileSdkVersion 28
 
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode publish.legoVersionCode
         versionName publish.legoVersion
 
@@ -24,12 +24,12 @@ android {
 
 }
 
-def SUPPORT_VERSION = "26.1.0"
+def SUPPORT_VERSION = "28.0.0"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support:recyclerview-v7:' + SUPPORT_VERSION
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -39,5 +39,3 @@ dependencies {
     implementation project(":lego-annotation")
     annotationProcessor project(":lego-processor")
 }
-
-apply from: '../aarPublish.gradle'

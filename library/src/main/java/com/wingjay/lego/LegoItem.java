@@ -75,12 +75,17 @@ public class LegoItem {
         return new LegoItem(viewHolderId, data, bundle);
     }
 
-    @Nullable String getViewHolderId() {
+    @Nullable
+    public String getViewHolderId() {
         return viewHolderId;
     }
 
     public Object getData() {
         return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
     }
 
     public Bundle getBundle() {
