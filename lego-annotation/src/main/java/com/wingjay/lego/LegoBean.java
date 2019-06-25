@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * @author wingjay
  * @date 2018/05/25
  */
-@Retention(RetentionPolicy.SOURCE)
+@Retention(RetentionPolicy.CLASS)
 @Target(ElementType.TYPE)
 public @interface LegoBean {
     String vhClassName() default "";

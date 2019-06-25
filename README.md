@@ -169,12 +169,27 @@ Here is our [sample code](https://github.com/wingjay/Lego/tree/master/sample) yo
 
 # Install
 ```
-implementation 'com.wingjay.lego:library:0.9.0'
-annotationProcessor 'com.wingjay.lego:lego-processor:0.9.0''
+implementation 'com.wingjay.lego:library:0.9.2'
+annotationProcessor 'com.wingjay.lego:lego-processor:0.9.2'
 ```
 
 if you use Kotlin, use as below
 ```
-implementation 'com.wingjay.lego:library:0.9.0'
-kapt 'com.wingjay.lego:lego-processor:0.9.0''
+implementation 'com.wingjay.lego:library:0.9.2'
+kapt 'com.wingjay.lego:lego-processor:0.9.2'
+```
+
+# Proguard
+```
+-keep @interface com.wingjay.lego.LegoBean
+-keep @interface com.wingjay.lego.LegoViewHolder
+
+-keep @com.wingjay.lego.LegoBean class *
+-keepclassmembers class * {
+    @com.wingjay.lego.LegoBean *;
+}
+-keep @com.wingjay.lego.LegoViewHolder class *
+-keepclassmembers class * {
+    @com.wingjay.lego.LegoViewHolder *;
+}
 ```
